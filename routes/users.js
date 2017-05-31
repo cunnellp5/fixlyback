@@ -19,7 +19,7 @@ router.get('/:id', function(req, res, next) {
 //GET all helps at a user ID for history LOG of helps
 router.get('/:id/helps', function(req, res, next) {
   Help.getAllFromUser(req.params.id).then(data => {
-    res.json({ AllHelps: data })
+    res.json({ AllHelpsAtUser: data })
   })
 })
 
