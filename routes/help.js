@@ -9,21 +9,30 @@ router.get('/', function(req, res, next) {
     res.json({ Help_forms: data });
   })
 });
-router.get('/active', function(req, res, next) {
-  Help.getAllActive().then(data => {
-    res.json({ Help_forms: data });
+// get one help at a specific id
+router.get('/:id', function(req, res, next)  {
+  Help.getOne(req.params.id).then((data) => {
+    res.json({ Updated: data })
   })
-});
-router.get('/pending', function(req, res, next) {
-  Help.getAllpending().then(data => {
-    res.json({ Help_forms: data });
-  })
-});
-router.get('/completed', function(req, res, next) {
-  Help.getAllcompleted().then(data => {
-    res.json({ Help_forms: data });
-  })
-});
+})
+
+
+// edit one help
+// router.put('/:id/edit', function(req, res, next)  {
+//   Help.editHelp(book_body, req.params.id).then(function(result){
+//     res.json({ Updated: data })
+//   })
+// })
+// router.get('/pending', function(req, res, next) {
+//   Help.getAllpending().then(data => {
+//     res.json({ Help_forms: data });
+//   })
+// });
+// router.get('/completed', function(req, res, next) {
+//   Help.getAllcompleted().then(data => {
+//     res.json({ Help_forms: data });
+//   })
+// });
 
 
 

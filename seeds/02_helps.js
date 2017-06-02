@@ -19,6 +19,15 @@ exports.seed = (knex, Promise) => {
           time: moment(Date.now()).format('h:mm:ss a'),
           day: moment(Date.now()).format('MMMM Do YYYY'),
           user_id: 1
+        },
+        {
+          description: 'bike completely broken',
+          request: 'pending',
+          lat: 39.7392,
+          lng: -104.9903,
+          time: moment(Date.now()).format('h:mm:ss a'),
+          day: moment(Date.now()).format('MMMM Do YYYY'),
+          user_id: 1
         }];
         return knex('help').insert(help);
       });

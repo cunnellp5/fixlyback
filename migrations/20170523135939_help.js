@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
     table.string('time');
     table.float('lat', 6);
     table.float('lng', 6);
-    table.enu('request', ['active', 'pending', 'completed']);
+    table.enu('request', ['active', 'pending', 'completed']).defaultTo('active');
     table.integer('user_id').references('user.id').unsigned().onDelete('cascade');
   });
 };

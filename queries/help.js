@@ -10,10 +10,16 @@ module.exports = {
   getAllActive: function() {
     return knex('help').where('request', 'active');
   },
-  getAllpending: function() {
-    return knex('help').where('request', 'pending');
+  getOneActive: function(id) {
+    return knex('help').where('request', 'active').andWhere('id', id);
   },
   getAllcompleted: function() {
     return knex('help').where('request', 'completed');
+  },
+  getOne: function(id) {
+    return knex('help').where('id', id);
+  },
+  editOne: function(id, request) {
+    return knex('help').where('id', id).update({request: request});
   }
 };
